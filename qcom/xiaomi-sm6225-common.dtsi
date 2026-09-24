@@ -17,3 +17,14 @@
 		st,clk_pinctrl;
 	};
 };
+
+&soc {
+	simtray {
+		compatible = "xiaomi,simtray-status";
+		status-gpio = <&tlmm 79 0x00>;
+	};
+
+	thermal-message: thermal-message {
+		board-sensor = "VIRTUAL-SENSOR";
+	};
+};
