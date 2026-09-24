@@ -42,4 +42,8 @@
 		compatible = "xiaomi,simtray-status";
 		status-gpio = <&tlmm 79 0x00>;
 	};
+
+	thermal-message {
+		board-sensor = "VIRTUAL-SENSOR";
+	};
 };
