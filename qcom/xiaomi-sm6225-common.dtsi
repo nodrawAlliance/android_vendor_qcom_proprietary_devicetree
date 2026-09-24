@@ -1,0 +1,19 @@
+&qupv3_se4_i2c {
+	status = "ok";
+	qcom,clk-freq-out = <0x61a80>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	st_st21nfc@08 {
+		compatible = "st,st21nfc";
+		reg = <8>;
+		st,irq-gpio = <&tlmm 70 0x00>;
+		st,reset-gpio = <&tlmm 69 0x00>;
+		st,clkreq-gpio = <&tlmm 71 0x00>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <70 0x00>;
+		interrupt-names = "nfc_irq";
+		clock-names = "nfc_ref_clk";
+		st,clk_pinctrl;
+	};
+};

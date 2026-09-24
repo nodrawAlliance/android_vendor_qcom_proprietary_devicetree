@@ -12,3 +12,7 @@
 	qcom,board-id = <0x20022 0x00>;
 	qcom,pmic-id = <0x2D 0x2E 0x00 0x00>;
 };
+
+&qupv3_se4_i2c {
+    status = "disabled";
+};
