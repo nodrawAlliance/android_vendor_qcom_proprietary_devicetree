@@ -36,4 +36,10 @@
         pinctrl-2 = <&msm_gpio_65>;
         pinctrl-3 = <&msm_gpio_65_output_high>;
 	};
+
+	/*add simtray status*/
+	simtray {
+		compatible = "xiaomi,simtray-status";
+		status-gpio = <&tlmm 79 0x00>;
+	};
 };
