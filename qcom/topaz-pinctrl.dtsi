@@ -68,4 +68,85 @@
 			function = "gpio";
 		};
 	};
+
+	/* GPIO_93 : CHG_PD_INT_N */
+	rt1711h_int_n: rt1711h_int_n {
+		mux {
+			pins = "gpio93";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio93";
+			drive-strength = <2>;
+			bias-pull-up;
+		};
+	};
+
+	bq2589x_int_default: bq2589x_int_default {
+		mux {
+			pins = "gpio105";
+			function = "gpio";
+	    };
+
+		config {
+			pins = "gpio105";
+			drive-strength = <2>;
+			bias-pull-up;
+			input-enable;
+		};
+	};
+
+	bq2589x_usb_switch_default: bq2589x_usb_switch_default {
+		mux {
+			pins = "gpio66";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio66";
+			drive-strength = <2>;
+			bias-disable;
+			output-low;
+		};
+	};
+
+	sc8551_int_default {
+		mux {
+			pins = "gpio84";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio84";
+			drive-strength = <2>;
+			bias-pull-up;
+			input-enable;
+		};
+	};
+
+	onewire_gpio_active {
+		mux {
+			pins = "gpio108";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio108";
+			drive-strength = <2>;
+			bias-pull-up;
+		};
+	};
+
+	onewire_gpio_sleep {
+		mux {
+			pins = "gpio108";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio108";
+			drive-strength = <2>;
+			bias-pull-up;
+		};
+	};
 };
