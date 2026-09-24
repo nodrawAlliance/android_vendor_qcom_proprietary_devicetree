@@ -1,0 +1,39 @@
+&soc {
+	fpc_fp: fpc1020 {
+		compatible = "fpc,fpc1020";
+		status = "ok";
+		interrupt-parent = <&tlmm>;
+		interrupts = <83 0>;
+		fpc,gpio_rst = <&tlmm 104 0>;
+		fpc,gpio_irq = <&tlmm 83 0>;
+		fpc,gpio_vdd_for_plsensor = <&tlmm 65 0>;
+		vcc_spi-supply = <&pm6125_l9>;
+		vdd_io-supply = <&pm6125_l9>;
+		vdd_ana-supply = <&pm6125_l9>;
+		fpc,enable-on-boot;
+		pinctrl-names = "fpc1020_reset_reset", "fpc1020_reset_active",
+		                "fpc1020_irq_active";
+        pinctrl-0 = <&msm_gpio_104>;
+        pinctrl-1 = <&msm_gpio_104_output_high>;
+        pinctrl-2 = <&msm_gpio_83>;
+	};
+
+	goodix_fp: goodix_fp {
+		compatible = "goodix,fingerprint";
+		status = "okay";
+		interrupt-parent = <&tlmm>;
+		interrupt = <83 0>;
+		vcc_spi_supply = <&pm6125_l9>;
+		vcc_ana_supply = <&pm6125_l9>;
+		vdd_io-supply = <&pm6125_l9>;
+		fp-gpio-irq = <&tlmm 83 0>;
+		fp-gpio-reset = <&tlmm 104 0>;
+		fp-gpio-pwr = <&tlmm 65 0>;
+		pinctrl-names = "goodix_reset_outputlow", "goodix_reset_outputhigh",
+		                "goodix_pwr_outputlow", "goodix_pwr_outputhigh";
+        pinctrl-0 = <&msm_gpio_104>;
+        pinctrl-1 = <&msm_gpio_104_output_high>;
+        pinctrl-2 = <&msm_gpio_65>;
+        pinctrl-3 = <&msm_gpio_65_output_high>;
+	};
+};
