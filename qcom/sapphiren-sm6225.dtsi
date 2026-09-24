@@ -1,0 +1,2 @@
+#include "sapphiren-pinctrl.dtsi"
+#include "xiaomi-sm6225-common.dtsi"
