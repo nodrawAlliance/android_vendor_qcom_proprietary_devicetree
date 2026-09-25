@@ -84,7 +84,7 @@
 &qupv3_se1_i2c {
     status = "ok";
 	qcom,bus-recovery;
-	sc8541@6a {
+	sc8541: sc8541@6a {
 		compatible = "sc,sc8541-standalone";
 		status = "ok";
 		dep-supply = <&qupv3_se1_i2c>;
@@ -131,7 +131,7 @@
 		sc,sc8541,pmid2out-ovp = <7>;
 	};
 
-	bq25960@65 {
+	bq25960: bq25960@65 {
 		compatible = "bq,bq25960-standalone";
 		#io-channel-cells = <1>;
 		status = "ok";
@@ -174,4 +174,114 @@
 		bq,bq25960,ms = <0>;
 		bq,bq25960,vout-ovp = <3>;
 	};
+};
+
+&pm7250b_charger {
+	status = "ok";
+	#io-channel-cells = <1>;
+	io-channels =
+		<&pm7250b_vadc 8>,
+		<&pm7250b_vadc 7>,
+		<&pm7250b_vadc 9>,
+		<&pm7250b_vadc 6>,
+		<&pm7250b_vadc 79>,
+		<&pm7250b_vadc 153>,
+		<&pm7250b_vadc 131>,
+		<&pm7250b_vadc 77>,
+		<&pm7250b_qg 75>,
+		<&pm7250b_qg 162>,
+		<&pm7250b_qg 70>,
+		<&pm7250b_qg 69>,
+		<&pm7250b_qg 66>,
+		<&pm7250b_qg 71>,
+		<&pm7250b_qg 93>,
+		<&pm7250b_qg 78>,
+		<&pm7250b_qg 68>,
+		<&pm7250b_qg 91>,
+		<&pm7250b_qg 72>,
+		<&pm7250b_qg 45>,
+		<&pm7250b_qg 83>,
+		<&pm7250b_qg 73>,
+		<&pm7250b_qg 82>,
+		<&pm7250b_qg 84>,
+		<&pm7250b_qg 86>,
+		<&pm7250b_qg 193>,
+		<&sc8541 152>,
+		<&sc8541 157>,
+		<&bq25960 181>,
+		<&bq25960 180>,
+		<&bq25960 185>,
+		<&bq25960 187>,
+		<&auth_battery 130>,
+		<&auth_battery 138>,
+		<&auth_battery 139>,
+		<&auth_battery 137>;
+	io-channel-names =
+		"usb_in_voltage",
+		"usb_in_current",
+		"chg_temp",
+		"die_temp",
+		"conn_temp",
+		"sbux_res",
+		"vph_voltage",
+		"skin_temp",
+		"resistance_id",
+		"fastcharge_mode",
+		"voltage_now",
+		"temp",
+		"capacity",
+		"voltage_ocv",
+		"voltage_avg",
+		"debug_battery",
+		"real_capacity",
+		"cc_soc",
+		"current_now",
+		"voltage_max",
+		"charge_full",
+		"charge_counter",
+		"cycle_count",
+		"charge_full_design",
+		"time_to_full_now",
+		"ffc_chg_termination_current",
+		"sc_bus_current",
+		"sc_manufacturer",
+		"bq_bus_current",
+		"bq_manufacturer",
+		"batt_full_current",
+		"bq_set_acdrv",
+		"auth_batt_id",
+		"auth_authen_result",
+		"auth_manufacturer",
+		"auth_chip_ok";
+	qcom,battery-data = <&mtp_batterydata>;
+	qcom,sec-charger-config = <0>;
+	qcom,auto-recharge-soc = <95>;
+	qcom,auto-recharge-vbat-mv = <100>;
+	qcom,step-charging-enable;
+	qcom,sw-jeita-enable;
+	qcom,distinguish-qc-class-ab;
+	qcom,charger-temp-max = <800>;
+	qcom,smb-temp-max = <800>;
+	qcom,suspend-input-on-debug-batt;
+	qcom,fcc-stepping-enable;
+	qcom,fcc-step-delay-ms = <100>;
+	qcom,fcc-step-size-ua = <100000>;
+	qcom,smb-internal-pull-kohm = <0>;
+	qcom,en-skin-therm-mitigation;
+	qcom,hvdcp3-standalone-config;
+	qcom,disable-suspend-on-collapse;
+	qcom,chg-term-current-ma = <(-250)>;
+	qcom,fcc-max-ua = <6000000>;
+	qcom,fv-max-uv = <4500000>;
+	mi,use_third_cp;
+	mi,support-ffc;
+	qcom,thermal-mitigation =
+		<5950000 5400000 5000000 4500000
+		 4000000 3700000 3500000 3000000
+		 2800000 2500000 2000000 1500000
+		 1000000  800000  500000  350000
+		 800000  800000>;
+	qcom,hvdcp2-max-icl-ua = <2000000>;
+	qcom,hvdcp2-12v-max-icl-ua = <1500000>;
+	dpdm-supply = <&usb2_phy0>;
 };
