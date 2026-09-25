@@ -6,7 +6,8 @@
 &soc {
 	mtp_batterydata: qcom,battery-data {
 		qcom,batt-id-range-pct = <15>;
-		#include "qg-batterydata-alium-3600mah.dtsi"
+		#include "qbg-battery-profile-nvt-5000mAh.dtsi"
+		#include "qbg-battery-profile-guanyu-5000mAh.dtsi"
 	};
 };
 
