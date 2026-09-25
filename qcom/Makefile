@@ -137,6 +137,10 @@ KHAJE_BOARDS += \
 		 khajeg-idp-usbc-overlay.dtbo \
 		 khajeg-idp-pm8010-overlay.dtbo \
 		 khajeg-idps-display-90hz-overlay.dtbo \
+		 topaz-sm6225-overlay.dtbo \
+		 tapas-sm6225-overlay.dtbo \
+		 sapphiren-sm6225-overlay.dtbo \
+		 sapphire-sm6225-overlay.dtbo \
 		 creek-sm6225-overlay.dtbo
 
 bengal-dtb-$(CONFIG_ARCH_KHAJE) += \
