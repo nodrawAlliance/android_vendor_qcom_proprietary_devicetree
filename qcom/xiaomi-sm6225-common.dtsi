@@ -1,3 +1,5 @@
+#include <dt-bindings/clock/qcom,gcc-khaje.h>
+
 &qupv3_se4_i2c {
 	status = "ok";
 	qcom,clk-freq-out = <0x61a80>;
@@ -31,4 +33,8 @@
 
 &qupv3_se4_2uart {
 	status = "disabled";
+};
+
+&sdhc_2 {
+	cd-gpios = <&tlmm 88 GPIO_ACTIVE_HIGH>;
 };
